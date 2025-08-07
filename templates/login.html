@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="static/auth.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h1>Вход</h1>
+    <form method="post" action="/login">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" required/>
+
+      <label for="password">Пароль</label>
+      <input type="password" name="password" id="password" required/>
+
+      <button type="submit">Войти</button>
+
+      <div class="form-error" style="height: 24px;">
+        {% if error %}
+          <p style="color: red; margin: 0;">{{ error }}</p>
+        {% elif errors %}
+          <p style="color: red; margin: 0;">{{ errors|first }}</p>
+        {% endif %}
+      </div>
+
+      <div class="auth-links">
+        <a href="#">Забыли пароль?</a>
+        <span> | </span>
+        <a href="register">Регистрация</a>
+      </div>
+
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="static/auth.css">
+</head>
+<body>
+  <div class="auth-container">
+    <h1>Регистрация</h1>
+    <form method="post" action="/register">
+    <label for="full_name">Имя и фамилия</label>
+    <input type="text" name="full_name" id="full_name" required/>
+
+    <label for="phone">Номер телефона</label>
+    <input type="tel" name="phone" id="phone" placeholder="+79991234567" required/>
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" required/>
+
+    <label for="password">Пароль</label>
+    <input type="password" name="password" id="password" required/>
+
+    <button type="submit">Зарегистрироваться</button>
+
+      <div class="form-error" style="height: 24px;">
+        {% if error %}
+          <p style="color: red; margin: 0;">{{ error }}</p>
+        {% elif errors %}
+          <p style="color: red; margin: 0;">{{ errors|first }}</p>
+        {% endif %}
+      </div>
+
+      <div class="auth-links">
+        <a href="login">Уже есть аккаунт?</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
